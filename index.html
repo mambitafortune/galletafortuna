@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleta de la Fortuna</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fdf6e3;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .fortune {
+            font-size: 1.5em;
+            color: #333;
+            margin: 20px 0;
+        }
+        .fortune-image {
+            animation: spin 3s infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0); }
+            50% { transform: rotate(360deg); }
+            100% { transform: rotate(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://example.com/fortune-cookie.gif" alt="Galleta de la Fortuna" class="fortune-image" width="200">
+        <div class="fortune" id="fortune-text">
+            Tu primera fortuna aparecerá aquí.
+        </div>
+    </div>
+
+    <script>
+        const frases = [
+            "La felicidad no es algo hecho. Proviene de tus propias acciones.",
+            "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
+            "La paciencia es amarga, pero su fruto es dulce.",
+            "Lo que hagas hoy puede mejorar todos tus mañanas.",
+            "La única forma de hacer un gran trabajo es amar lo que haces.",
+            "La vida es 10% lo que te sucede y 90% cómo reaccionas a ello.",
+            // Agrega aquí más frases hasta llegar a 1000
+        ];
+
+        let index = 0;
+
+        function cambiarFrase() {
+            const fortuneText = document.getElementById('fortune-text');
+            fortuneText.textContent = frases[index];
+            index = (index + 1) % frases.length;
+        }
+
+        cambiarFrase(); // Mostrar la primera frase al cargar
+        setInterval(cambiarFrase, 30000); // Cambiar cada 30 segundos
+    </script>
+</body>
+</html>
